@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Book Library</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="food_style.css">
+    <style>
+      li:hover{
+        border:2px solid rgb(156, 181, 56);
+      }
+      *{
+        box-sizing:border-box;
+      }
+      div.hello{
+        height:300px;
+        background-image: url(div.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        color:rgb(75, 43, 4);
+        margin:auto;
+        display:block;
+        padding:60px 0px;
+      }
+              
+    </style>
+</head>
+<body>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"  ><img src="book.jpeg" alt="book" style="width: 30px; height:30px"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="booksnavbar.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Reviews</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categories
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#fict">Fiction</a></li>
+                  <li><a class="dropdown-item" href="#">Non Fiction</a></li>
+                  <li><a class="dropdown-item" href="#">Kids Education</a></li>
+                  <li><a class="dropdown-item" href="#">Novels</a></li>
+                  <li><a class="dropdown-item" href="#">Science</a></li>
+                  <li><a class="dropdown-item" href="#">Technology</a></li>
+                  <li><a class="dropdown-item" href="#">Magazines</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <header class="hero-section text-white text-center py-5 hello" >
+        <div class="container hello">
+            <h1>Welcome </h1>
+            <h3>Stories to Live</h3>
+            <h4>Read.Dream.Discover</h4>
+            
+        </div>
+     </header>
+
+     <section>
+      <div class="container">
+        <h1 style="text-align: center;"> Fiction </h1>
+        <div class="row" id="fict">
+          <!-- First image -->
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/200982373-don-t-let-the-forest-in"><img src="fic1.jpeg" class="img-fluid" alt="Image 1"></a>
+          </div>
+          <!-- Second image -->
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/207252770-the-blue-hour"><img src="fic2.jpeg" class="img-fluid" alt="Image 2"></a>
+          </div>
+          <!-- Third image -->
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/204593559-throne-of-secrets"><img src="fic3.jpeg" class="img-fluid" alt="Image 3"></a>
+          </div>
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/205064715-this-cursed-house"><img src="fic4.jpeg" class="img-fluid" alt="image 4"></a>
+          </div>
+        </div>
+      </div><br><br><br>
+     </section>
+     <section>
+      <div class="container">
+        <h1 style="text-align: center;"> Novels </h1>
+        <div class="row" id="fict">
+          <!-- First image -->
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/200982373-don-t-let-the-forest-in"><img src="fic1.jpeg" class="img-fluid" alt="Image 1"></a>
+          </div>
+          <!-- Second image -->
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/207252770-the-blue-hour"><img src="fic2.jpeg" class="img-fluid" alt="Image 2"></a>
+          </div>
+          <!-- Third image -->
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/204593559-throne-of-secrets"><img src="fic3.jpeg" class="img-fluid" alt="Image 3"></a>
+          </div>
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/205064715-this-cursed-house"><img src="fic4.jpeg" class="img-fluid" alt="image 4"></a>
+          </div>
+        </div>
+      </div><br><br><br>
+     </section>
+     
+     <section>
+      <div class="container">
+        <h1 style="text-align: center;"> Non-Fiction </h1>
+        <div class="row" id="fict">
+          <!-- First image -->
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/200982373-don-t-let-the-forest-in"><img src="fic1.jpeg" class="img-fluid" alt="Image 1"></a>
+          </div>
+          <!-- Second image -->
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/207252770-the-blue-hour"><img src="fic2.jpeg" class="img-fluid" alt="Image 2"></a>
+          </div>
+          <!-- Third image -->
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/204593559-throne-of-secrets"><img src="fic3.jpeg" class="img-fluid" alt="Image 3"></a>
+          </div>
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/205064715-this-cursed-house"><img src="fic4.jpeg" class="img-fluid" alt="image 4"></a>
+          </div>
+        </div>
+      </div><br><br><br>
+     </section>
+     <section>
+      <div class="container">
+        <h1 style="text-align: center;"> Kids-Education </h1>
+        <div class="row" id="fict">
+          <!-- First image -->
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/200982373-don-t-let-the-forest-in"><img src="fic1.jpeg" class="img-fluid" alt="Image 1"></a>
+          </div>
+          <!-- Second image -->
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/207252770-the-blue-hour"><img src="fic2.jpeg" class="img-fluid" alt="Image 2"></a>
+          </div>
+          <!-- Third image -->
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/204593559-throne-of-secrets"><img src="fic3.jpeg" class="img-fluid" alt="Image 3"></a>
+          </div>
+          <div class="col-md-3">
+            <a href="https://www.goodreads.com/book/show/205064715-this-cursed-house"><img src="fic4.jpeg" class="img-fluid" alt="image 4"></a>
+          </div>
+        </div>
+      </div><br><br><br>
+     </section>
+     
+     
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+</body>
