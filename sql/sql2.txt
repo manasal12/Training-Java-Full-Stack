@@ -1,0 +1,219 @@
+/*create database companydb;
+use companydb;
+create table departments(
+departmentid int auto_increment primary key,
+departmentname varchar(50) not null unique,
+location varchar(100) not null
+);
+create table employees(
+employeeid int auto_increment primary key,
+firstname varchar(50) not null,
+lastname varchar(50) not null,
+departmentid int not null,
+dateofbirth date not null,
+email varchar(100) not null unique,
+gender enum('male','female','other') not null,
+hiredate date not null check(hiredate>='2000-01-01'),
+foreign key(departmentid) references departments(departmentid)
+);
+
+create table projects(
+projectid int auto_increment primary key,
+projectname varchar(100) not null unique,
+startdate date not null,
+enddate date,check(enddate >startdate),
+budget decimal(15,2) not null check(budget>0)
+);
+create table assignments(
+assignmentid int auto_increment primary key,
+employeeid int not null,
+projectid int not null,
+hoursworked decimal(5,2) not null ,
+foreign key(employeeid)references employees(employeeid),
+foreign key(projectid)references projects(projectid)
+);
+create table salaries(
+salaryid int auto_increment primary key,
+employeeid int not null,
+basesalary decimal(10,2) not null check(basesalary>0),
+bonus decimal (10,2)check(bonus>=0),
+foreign key(employeeid)references employees(employeeid)
+);
+insert into departments(departmentname,location)
+values('hr','newyork'),
+('it','san francisco'),
+('finance','chicago'),
+('marketing','los angeles');
+
+insert into employees(firstname,lastname,departmentid,dateofbirth,email,gender,hiredate)
+values('john','doe',1,'1985-04-12','john.doe@example.com','male','2010-05-10'),
+('jane','smith',2,'1990-08-23','jane.smith@example.com','female','2015-07-19'),
+('alice','brown',3,'1982-11-17','alice.brown@example.com','female','2008-02-25'),
+('bob','johnson',4,'1979-03-30','bob.johnson@example.com','male','2005-01-15');
+
+insert into projects(projectname,startdate,enddate,budget)
+values('website redesign','2023-01-01','2023-12-31',100000),
+('mobile app development','2023-03-01','2024-02-28',150000),
+('data migration','2022-06-01','2023-06-30',50000);
+
+insert into assignments(employeeid,projectid,hoursworked)
+values(1,1,120),
+(2,2,250),
+(3,3,180),
+(4,1,90);
+
+insert into salaries(employeeid,basesalary,bonus)
+values(1,60000,5000),
+(2,80000,7000),
+(3,75000,6000),
+(4,90000,10000);
+
+
+select e.firstname,e.lastname,d.departmentname
+from departments d
+join employees e
+on d.departmentid=e.departmentid
+where d.departmentname='it'
+
+
+select e.firstname,e.lastname,e.hiredate
+from employees e
+where e.hiredate>='2011-01-01';
+
+
+select p.projectname,p.budget
+from projects p
+where p.budget>80000;
+
+
+select firstname,lastname,hiredate
+from employees
+order by hiredate desc;
+
+
+select projectname,budget
+from projects
+order by budget asc;
+
+
+select d.departmentname,count(e.employeeid) as employeecount 
+from departments d
+left join employees e
+on d.departmentid=e.departmentid
+group by(d.departmentname);
+
+
+select e.firstname,s.basesalary
+from employees e
+join salaries s
+on s.employeeid=e.employeeid
+order by s.basesalary desc
+limit 3;
+
+
+select e.firstname,e.lastname,d.departmentname
+from employees e
+join departments d
+on e.departmentid=d.departmentid;
+
+
+select a.assignmentid,e.firstname,e.lastname,p.projectname
+from assignments a
+left join employees e
+on a.employeeid=e.employeeid
+join projects p
+on a.projectid=p.projectid;
+
+
+select e.firstname ,e.lastname,p.projectname
+from employees e
+join assignments a
+on a.employeeid=e.employeeid
+join projects p
+on a.projectid=p.projectid
+where p.budget=(select max(budget)
+from projects);
+
+
+select  firstname,lastname,timestampdiff(year,dateofbirth,curdate()) as age
+from employees;
+
+
+select  e.firstname,e.lastname,(s.basesalary+s.bonus) as totalsalary
+from employees e
+join salaries s
+on e.employeeid=s.employeeid;
+
+
+select firstname,lastname,hiredate
+from employees
+where hiredate>='2015-01-01' and hiredate<='2015-12-31';
+
+
+select projectname ,enddate
+from projects
+where enddate<='2023-12-31';
+
+
+select e.firstname,e.lastname,s.basesalary
+from employees e
+join salaries s
+on e.employeeid=s.employeeid
+where s.basesalary>=70000;
+
+
+select e.firstname ,count(p.projectid) as numberofprojects
+from employees e
+join assignments a
+on e.employeeid=a.employeeid 
+join projects p
+on p.projectid=a.projectid
+group by e.employeeid
+
+
+select departmentname,location
+from departments
+where location ='san francisco';
+
+
+select p.projectname ,a.hoursworked
+from projects p
+join assignments a 
+on a.projectid=p.projectid;
+
+
+select max(bonus) 
+from salaries;
+
+
+select projectname
+from projects
+where datediff(enddate,startdate)>365;
+
+
+select projectname
+from projects
+where startdate>='2023-01-01' and startdate<='2023-12-31';
+
+
+select e.firstname,e.lastname,sum(a.hoursworked) as totalhours
+from employees e
+join assignments a 
+on e.employeeid=a.employeeid
+group by e.employeeid;
+
+
+select d.departmentname ,count(e.employeeid)
+from departments d
+join employees e
+on d.departmentid=e.departmentid
+group by d.departmentname
+
+use companydb;
+select firstname,lastname
+from employees
+where dateofbirth <'1985-01-01';*
+
+
+
+

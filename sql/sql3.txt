@@ -1,0 +1,52 @@
+create database assign;
+use assign;
+create table countries (
+columnid int auto_increment primary key,
+countryname varchar(20),
+regionid int 
+);
+
+
+create table jobs(
+jobid varchar(10)  primary key ,
+jobtitle varchar(10) not null ,
+minsalary decimal(6,0) default null,
+maxsalary decimal(6,0) default null
+);
+
+
+
+create table jobhistory(
+employeeid int auto_increment primary key,
+startdate date,
+enddate date,
+jobid varchar(10),
+departmentid int,
+foreign key(jobid) references jobs(jobid)
+);
+use assign;
+create table departments(
+departmentid decimal(4,0) not null,
+departmentname varchar(50) default null,
+managerid decimal(6,0)  not null,
+locationid decimal(4,0) default null,
+Primary key(departmentid,managerid)
+);
+
+
+create table employee(
+employeeid int auto_increment primary key,
+firstname varchar(50),
+lastname varchar(50),
+email varchar(100),
+phonenumber varchar(10),
+hiredate date,
+job_id varchar(20),
+salary decimal(6,0),
+commission decimal(5,0),
+managerid decimal(6,0),
+departmentid decimal(4,0),
+foreign key(departmentid,managerid) references departments(departmentid,managerid)
+);
+
+
