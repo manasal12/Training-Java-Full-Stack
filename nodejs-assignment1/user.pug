@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        title Product list
+        
+    body
+        h1 Products list
+        ul
+            each product in products
+                li
+                    h3= product.name
+                    p= product.description
+                    p Price: $#{product.price}
+                    p Available: #{product.available} units
+        a(href='/admin') Go to Admin Panel to add new products
