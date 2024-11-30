@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body{
+            background:linear-gradient(to right,rgb(216, 134, 197),rgb(54, 110, 73));
+        }
+        h1{
+            text-align: center;
+        }
+        div{
+            width:400px;
+            height:250px;
+            border:1px solid rgb(179, 201, 211);
+            border-radius: 5px;
+            margin:auto;
+            background-color: rgb(228, 232, 235);
+            text-align: center;
+            margin-top:200px;
+
+
+        }
+        select {
+            background-color: rgb(198, 117, 199);
+        }
+        select:hover{
+            background-color: rgb(163, 37, 144);
+            color:white;
+        }
+       button:hover{
+        background-color: rgb(166, 42, 147);
+       }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <h1>Welcome to the product Management system</h1>
+        
+    <h3>Select your role to login</h3>
+    <form action="/login" method="POST" >
+        <label for="role">Role:</label>
+        <select name="role" id="role" style="width:150px;">
+            <option value="admin" >Admin</option>
+            <option value="user">User</option>
+        </select><br><br>
+
+        <button type="submit"style ="width:150px;">Login</button>
+    </form>
+
+    </div>
+    
+</body>
+</html>
