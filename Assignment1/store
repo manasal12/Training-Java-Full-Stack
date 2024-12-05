@@ -1,0 +1,39 @@
+package pack.cap.module1.basic;
+
+public class Store {
+	byte price;
+	int quantities;
+	static double total=0;
+	
+	void display(int price,int quantity) {
+		double sum=0;
+		sum=sum+price*quantity;
+		total=total+sum;
+		
+	}
+	 void discount(double total,double discount,float taxrate) {
+		 System.out.println("price after discount  "+(total-total*discount));
+		 double taxprice=total* taxrate;
+		 System.out.println("FiNAL PRICE  "+(total+taxprice-total*discount));
+		
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Store s1=new Store();
+		Store s2=new Store();
+		Store s3=new Store();
+		s1.display(10,50);
+		s2.display(20,50);
+		s3.display(15,15);
+		System.out.println("Total "+Store.total);
+		double discount=0.1;
+		float taxrate=0.28f;
+		s3.discount(Store.total,discount,taxrate);
+		
+		
+
+	}
+
+}
