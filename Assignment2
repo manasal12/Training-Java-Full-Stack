@@ -1,0 +1,150 @@
+//Bankexample for generalizes and specialization 
+package java2;
+
+//Generalization 
+class BankAccount{
+	String accountNumber;
+	double balance;
+	public BankAccount(String accountNumber, double balance) {
+		super();
+		this.accountNumber = accountNumber;
+		this.balance = balance;
+	}
+	public void deposit(double amount) {
+		if( amount>0) {
+			balance += amount;
+			System.out.println("Deposited successfully : "+ amount + "New Balance :"+ balance);
+		}else {
+			System.out.println("deposite amount must be positive ");
+		}
+	}
+	public void withDraw(double amount ) {
+		if(amount >0 && amount <= balance ) {
+			balance -= amount ; 
+			System.out.println("withdrqw successfully : "+ amount + "New Balance :"+ balance);
+		}else {
+			System.out.println("insufficient balance ");
+		}
+	}
+	public void checkBalance() {
+		System.out.println("Balance for account "+accountNumber +" $ "+ balance);
+	}
+}
+
+//specialization 
+class SavingsAccount extends BankAccount{
+	double intRate;
+	public SavingsAccount(String accountNumber, double balance , double intRate) {
+		super(accountNumber, balance);
+		// TODO Auto-generated constructor stub
+		this.intRate = intRate;
+	}
+public void applyInterest () {
+	double intr = balance * intRate ;
+	balance += intr;
+	System.out.println("Interest of $ "+ intr +" applied New balance "+ balance);
+	
+		}}
+class CheckingAccount extends BankAccount{
+	double fee;
+	public CheckingAccount(String accountNumber, double balance,double fee) {
+		super(accountNumber, balance);
+		// TODO Auto-generated constructor stub
+		this.fee = fee;
+	}
+	@Override
+	public void withDraw(double amount) {
+		// TODO Auto-generated method stub
+		super.withDraw(amount);//because of this the withdraw from parent class is printed
+		if(amount > 0 && amount <= balance) {
+			balance -= amount ; 
+			balance -= fee;
+			System.out.println("withdraw "+amount + " with fee of "+fee);
+		}else {
+			System.out.println("Insufficieant balance ");
+		}
+	}
+
+	}
+class SpiAccount extends BankAccount{
+	
+	double rate;
+	public SpiAccount(String accountNumber, double balance,double rate) {
+		super(accountNumber, balance);
+		this.rate=rate;
+}
+	public void investment(double amount) {
+		if(amount>0) {
+			rate+=amount;
+			System.out.println("Investment "+rate);
+		}
+		else {
+			System.out.println("the investment value should be positive");
+		}
+	}
+
+
+}
+class BussinessAccount extends BankAccount{
+	double busfee;
+	public BussinessAccount(String accountNumber, double balance,double busfee) {
+		super(accountNumber, balance);
+		this.busfee=busfee;
+}
+	public void withDraw(double amount ) {
+		if(amount >0 && amount <= balance ) {
+			balance -= amount ; 
+			balance-=busfee;
+			System.out.println("bussiness withdrqw successfully : "+ amount +"with a fee of:  "+busfee+"balance" +balance);
+		}else {
+			System.out.println("insufficient balance ");
+		}
+	}
+	
+	
+}
+class TradingAccount extends BankAccount{
+	double tradingfee;
+	public TradingAccount(String accountNumber, double balance,double tradingfee) {
+		super(accountNumber, balance);
+		this.tradingfee=tradingfee;
+}
+	public void trades(double amount ) {
+		if(amount >0 ) {
+			balance -= amount ; 
+			balance-=tradingfee;
+			System.out.println("trades succesfully : "+ amount +"with a fee of:  "+tradingfee+"balance" +balance);
+		}else {
+			System.out.println("insufficient balance ");
+		}
+	}
+}
+
+public class gen_spec{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+  SavingsAccount sa = new SavingsAccount("SA123", 5000, 0.03);
+  sa.deposit(10000);
+  sa.applyInterest();// specialization apply for savingAccount 
+  
+  
+  CheckingAccount ca = new CheckingAccount("CA456", 4000, 2.5);
+  ca.deposit(1000);
+  ca.withDraw(200);//specialization withdraw with fee for checkingAccount 
+  SpiAccount spi=new SpiAccount("cswer",6000,0.5);
+  spi.deposit(30000);
+  spi.investment(4000);
+  BussinessAccount ba=new BussinessAccount("heko",8000,0.8);
+  ba.deposit(5000);
+  ba.withDraw(4000);
+  TradingAccount ta=new TradingAccount("c23bg",9000,0.4);
+  ta.deposit(20000);
+  ta.trades(1000);
+  
+  
+  
+  
+	}
+
+}
