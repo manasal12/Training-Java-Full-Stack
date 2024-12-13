@@ -1,0 +1,78 @@
+//employee salary
+
+package java2;
+import java.util.Scanner;
+public class Array2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter number of employees");
+		int size=sc.nextInt();
+		double salary[]=new double[size];
+		double newsalary[]=salary;
+		double bonusarray[]=salary;
+		System.out.println("Enter all the "+size+" employees salaries");
+		for(int i=0;i<size;i++) {
+			salary[i]=sc.nextInt();
+		}
+		System.out.println("After Salary increment");
+		for(int i=0;i<size;i++) {
+			if(newsalary[i]>=30000) {
+				newsalary[i]=(newsalary[i]*1.1);
+			}
+		}
+		for(int i=0;i<size;i++) {
+			System.out.println("new salaryof "+i+" is: "+newsalary[i]);
+		}
+		
+		System.out.println(" After bonus ");
+		for(int i=0;i<size;i++) {
+			if(bonusarray[i]==20000) {
+				bonusarray[i]+=2000;
+			}
+			
+		}
+		for(int i=0;i<size;i++) {
+			System.out.println("afterbonus  salary for "+i+" is: "+bonusarray[i]);
+		}
+		//double advice=
+		System.out.println("salary improvement advice");
+		for(int i=0;i<size;i++) {
+			 if(salary[i]<15000) {
+				System.out.println("Improve your work  "+i);
+			}
+		}
+		
+		System.out.println("HRA:");
+		double Hraarray[]=salary;
+		for(int i=0;i<size;i++ ) {
+			Hraarray[i]*=1.1;
+			
+		}
+		for(int i=0;i<size;i++ ) {
+			System.out.println("hra of  "+i+" is"+Hraarray[i]);
+		}
+		
+		
+		System.out.println(" Ta:");
+		double Taarray[]=salary;
+		for(int i=0;i<size;i++ ) {
+			Taarray[i]*=1.05;
+		}
+		for(int i=0;i<size;i++ ) {
+			System.out.println("Ta of  "+i+" is"+Taarray[i]);
+		}
+		System.out.println(" da:");
+		double Daarray[]=salary;
+		for(int i=0;i<size;i++ ) {
+			Daarray[i]*=1.08;
+		}
+		for(int i=0;i<size;i++ ) {
+			System.out.println("Da of  "+i+" is"+Daarray[i]);
+		}
+		
+
+	}
+
+}
