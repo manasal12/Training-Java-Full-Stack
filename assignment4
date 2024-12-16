@@ -1,0 +1,51 @@
+//stream api
+package interfaces;
+import java.util.stream.Stream;
+import java.util.stream.DoubleStream;
+import java.util.Arrays;
+
+
+public class StreamAssignment {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//i can use stream only for one method .everytimeyou want to apply new method create stream again
+		double[] salary= {10000,70000,80000,35000,40000,50000,60000,20000,30000,90000};
+		int x=salary.length;
+		DoubleStream numberStream=Arrays.stream(salary);
+		System.out.println("after filtering employees with salry less that 40000:");
+		numberStream.filter(a->a<40000)
+		.forEach(System.out::println);
+		
+		DoubleStream numberStream1=Arrays.stream(salary);
+		System.out.println("after filtering employees with salry greater that 75000:");
+		numberStream1.filter(a->a<40000)
+		.forEach(System.out::println);
+		
+		DoubleStream numberStream2=Arrays.stream(salary);
+		System.out.println("increment for employees whose salry is around 35000:");
+		numberStream2.filter(b->(b>33000 && b<37000))
+		.map(a->a*1.1)
+		.forEach(System.out::println);
+		System.out.println("Average Salary: ");
+		
+		DoubleStream numberStream3=Arrays.stream(salary);
+		//double y=numberStream3.count();
+		//System.out.println(y);
+		double average=numberStream3.average().orElse(0.0);
+		System.out.println(average);
+		System.out.println("Company Yearly Turn over:");
+		System.out.println(average*x);
+		
+		
+		System.out.println("Arrange in descending order:");
+		DoubleStream numberStream4=Arrays.stream(salary);
+		numberStream4.boxed().sorted((c,d)->Double.compare(d,c))//to sort in descending order
+		.forEach(System.out::println);
+		//boxed converts doublestream into stream double which allows us to apply a comparator
+		//the above sort operation sorts the stream in descending order
+		
+
+	}
+
+}
